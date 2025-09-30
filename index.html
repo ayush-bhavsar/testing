@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playwright Testing Practice Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="main-nav" class="navigation">
+        <ul>
+            <li><a href="#home" id="home-link">Home</a></li>
+            <li><a href="#about" id="about-link">About</a></li>
+            <li><a href="#contact" id="contact-link">Contact</a></li>
+            <li><a href="https://example.com" id="external-link" target="_blank">External Link</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 id="page-title">Playwright Automation Testing Practice Page</h1>
+
+        <!-- Login Form Section -->
+        <section id="login-section" class="form-section">
+            <h2>Login Form</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter password" required>
+                </div>
+                <button type="submit" id="login-btn" class="btn btn-primary">Login</button>
+            </form>
+            <div id="login-message" class="message"></div>
+        </section>
+
+        <!-- Registration Form Section -->
+        <section id="registration-section" class="form-section">
+            <h2>Registration Form</h2>
+            <form id="registration-form">
+                <div class="form-group">
+                    <label for="full-name">Full Name:</label>
+                    <input type="text" id="full-name" name="fullName" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reg-password">Password:</label>
+                    <input type="password" id="reg-password" name="regPassword" placeholder="Create a password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Gender:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="gender-male" name="gender" value="male">
+                        <label for="gender-male">Male</label>
+                        <input type="radio" id="gender-female" name="gender" value="female">
+                        <label for="gender-female">Female</label>
+                        <input type="radio" id="gender-other" name="gender" value="other">
+                        <label for="gender-other">Other</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Skills:</label>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="skill-javascript" name="skills" value="javascript">
+                        <label for="skill-javascript">JavaScript</label>
+                        <input type="checkbox" id="skill-python" name="skills" value="python">
+                        <label for="skill-python">Python</label>
+                        <input type="checkbox" id="skill-java" name="skills" value="java">
+                        <label for="skill-java">Java</label>
+                        <input type="checkbox" id="skill-csharp" name="skills" value="csharp">
+                        <label for="skill-csharp">C#</label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="country">Country:</label>
+                    <select id="country" name="country" required>
+                        <option value="">Select Country</option>
+                        <option value="us">United States</option>
+                        <option value="ca">Canada</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="au">Australia</option>
+                        <option value="de">Germany</option>
+                        <option value="fr">France</option>
+                        <option value="in">India</option>
+                        <option value="jp">Japan</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="profile-picture">Profile Picture:</label>
+                    <input type="file" id="profile-picture" name="profilePicture" accept="image/*">
+                </div>
+                
+                <button type="submit" id="register-btn" class="btn btn-success">Register</button>
+            </form>
+            <div id="registration-result" class="result-display"></div>
+        </section>
+
+        <!-- Interactive Buttons Section -->
+        <section id="buttons-section" class="form-section">
+            <h2>Interactive Buttons</h2>
+            <div class="button-group">
+                <button id="show-modal-btn" class="btn btn-info">Show Modal</button>
+                <button id="load-data-btn" class="btn btn-warning">Load More Data</button>
+                <button id="tooltip-btn" class="btn btn-secondary" title="This is a helpful tooltip!">Hover for Tooltip</button>
+                <button id="delayed-content-btn" class="btn btn-primary">Show Hidden Content (3s delay)</button>
+            </div>
+            <div id="dynamic-content" class="dynamic-content"></div>
+            <div id="hidden-element" class="hidden-element">
+                This element appeared after a delay! Perfect for testing waits.
+            </div>
+        </section>
+
+        <!-- Data Table Section -->
+        <section id="table-section" class="form-section">
+            <h2>User Data Table</h2>
+            <div class="table-controls">
+                <button id="add-user-btn" class="btn btn-success">Add User</button>
+            </div>
+            <table id="users-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="users-table-body">
+                    <tr data-user-id="1">
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john.doe@example.com</td>
+                        <td>Admin</td>
+                        <td><button class="btn btn-danger btn-small delete-btn" data-user-id="1">Delete</button></td>
+                    </tr>
+                    <tr data-user-id="2">
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>jane.smith@example.com</td>
+                        <td>User</td>
+                        <td><button class="btn btn-danger btn-small delete-btn" data-user-id="2">Delete</button></td>
+                    </tr>
+                    <tr data-user-id="3">
+                        <td>3</td>
+                        <td>Mike Johnson</td>
+                        <td>mike.johnson@example.com</td>
+                        <td>Moderator</td>
+                        <td><button class="btn btn-danger btn-small delete-btn" data-user-id="3">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Sample Modal</h3>
+                <span id="close-modal" class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p id="modal-text">This is a sample modal dialog for testing purposes. You can interact with it using Playwright!</p>
+                <div class="modal-form">
+                    <label for="modal-input">Enter some text:</label>
+                    <input type="text" id="modal-input" placeholder="Type something...">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="modal-ok-btn" class="btn btn-primary">OK</button>
+                <button id="modal-cancel-btn" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
