@@ -181,9 +181,9 @@ function loadMoreData() {
         
         contentEl.innerHTML = `
             <h4>Loaded Data (${currentTime})</h4>
-            <div class="data-grid">
+            <div class="data-grid" data-testid="data-grid">
                 ${randomData.map(item => `
-                    <div class="data-item" data-item-id="${item.id}">
+                    <div class="data-item" data-item-id="${item.id}" data-testid="data-item-${item.id}">
                         <strong>${item.name}</strong><br>
                         <span class="data-detail">${item.description}</span><br>
                         <small class="data-timestamp">Created: ${item.timestamp}</small>
@@ -257,13 +257,14 @@ function addUserToTable(name, email, role) {
     const tableBody = document.getElementById('users-table-body');
     const newRow = document.createElement('tr');
     newRow.setAttribute('data-user-id', userIdCounter);
+    newRow.setAttribute('data-testid', `user-row-${userIdCounter}`);
     
     newRow.innerHTML = `
         <td>${userIdCounter}</td>
         <td>${name}</td>
         <td>${email}</td>
         <td>${role}</td>
-        <td><button class="btn btn-danger btn-small delete-btn" data-user-id="${userIdCounter}">Delete</button></td>
+        <td><button class="btn btn-danger btn-small delete-btn" data-user-id="${userIdCounter}" data-testid="delete-user-${userIdCounter}">Delete</button></td>
     `;
     
     tableBody.appendChild(newRow);
@@ -327,10 +328,10 @@ function showFilePreview(file) {
         }
         
         preview.innerHTML = `
-            <div style="display: flex; align-items: center; gap: 10px;">
-                <img src="${e.target.result}" alt="Preview" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;">
-                <span>Selected: ${file.name}</span>
-                <button type="button" onclick="clearFilePreview()" style="background: #e74c3c; color: white; border: none; padding: 2px 6px; border-radius: 2px; cursor: pointer;">×</button>
+            <div style="display: flex; align-items: center; gap: 10px;" data-testid="file-preview-container">
+                <img src="${e.target.result}" alt="Preview" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;" data-testid="file-preview-image">
+                <span data-testid="file-preview-name">Selected: ${file.name}</span>
+                <button type="button" onclick="clearFilePreview()" style="background: #e74c3c; color: white; border: none; padding: 2px 6px; border-radius: 2px; cursor: pointer;" data-testid="file-preview-clear">×</button>
             </div>
         `;
     };
