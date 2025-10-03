@@ -1,6 +1,13 @@
 # Playwright Testing Practice Page
 
+![Status](https://img.shields.io/badge/status-active-success.svg)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Last Updated](https://img.shields.io/badge/last%20updated-October%202025-brightgreen.svg)
+
 A comprehensive web page designed specifically for practicing Playwright automation testing skills. This page includes various interactive elements, forms, and dynamic content to help you master web automation testing.
+
+> 📝 **Last Updated:** October 3, 2025  
+> 👨‍💻 **Maintained by:** ayush-bhavsar
 
 ## 🎯 Features
 
